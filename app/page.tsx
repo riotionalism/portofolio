@@ -300,37 +300,34 @@ export default function Home() { // <-- Cukup satu kali di sini
       </section>
 
       {/* ================================== */}
-      {/* BAGIAN PROYEK (KARTU 1 DIUPDATE, UKURAN TETAP) */}
+      {/* BAGIAN PROYEK (KARTU LENGKAP & UKURAN KONSISTEN) */}
       {/* ================================== */}
       <section id="proyek" className="bg-white dark:bg-gray-900 py-16 transition-colors duration-300 overflow-hidden">
         <div className="container mx-auto px-0 md:px-8">
           <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl text-gray-900 dark:text-white transition-colors duration-300">
-            My Projects {/* Ganti judul section jadi 'My Projects' */}
+            My Projects
           </h2>
           
           <ProjectCarousel>
             
             {/* Kartu Proyek 1 - KaryaRasa BackEnd */}
-
             <div className="h-full flex flex-col"> 
               <div className="overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800 shadow-lg transition-colors duration-300 flex flex-col flex-grow">
                 <Image
-                  src="/supabase-schema.png" // <-- PASTIKAN NAMA & EKSTENSI FILE BENER
+                  src="/supabase-schema.png"
                   alt="Schema Database KaryaRasa"
-                  width={500} // Lebar proporsional (bisa disesuaiin)
-                  height={281} // Tinggi proporsional (asumsi 16:9)
-                  className="w-full h-56 object-cover" // <-- UKURAN TINGGI (h-56) SAMA DENGAN KARTU LAIN
+                  width={500}
+                  height={281}
+                  className="w-full h-56 object-cover"
                 />
-                {/* Info Proyek */}
-                <div className="p-6 flex flex-col flex-grow"> {/* flex-grow biar deskripsi ngisi ruang */}
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                     KaryaRasa BackEnd - RevoU Course
                   </h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-300 flex-grow mb-4"> {/* flex-grow */}
-                   KaryaRasa is a team project to build a robust Python/Flask backend API for a local e-commerce application, aimed at digitally connecting artisans with customers to facilitate the sale of handicrafts. As a core contributor in this RevoU final project, I was fully responsible for the development and testing of API endpoints that documented and verified with API Dog, and assisted in managing the PostgreSQL database to ensure data integrity and support core features such as JWT User Authentication, Product CRUD, and Per-user Cart Management. Beyond the backend focus, I also helped the frontend team with TypeScript/Next.js in creating chart visualizations and managed the deployment on the Koyeb platform to ensure stable application uptime. 
+                  <p className="mt-1 text-gray-600 dark:text-gray-300 text-justify flex-grow mb-4">
+                    KaryaRasa is a team project to build a robust Python/Flask backend API for a local e-commerce application, aimed at digitally connecting artisans with customers to facilitate the sale of handicrafts. As a core contributor in this RevoU final project, I was fully responsible for the development and testing of API endpoints that documented and verified with API Dog, and assisted in managing the PostgreSQL database to ensure data integrity and support core features such as JWT User Authentication, Product CRUD, and Per-user Cart Management. Beyond the backend focus, I also helped the frontend team with TypeScript/Next.js in creating chart visualizations and managed the deployment on the Koyeb platform to ensure stable application uptime.
                   </p>
-                  {/* Tombol-tombol */}
-                  <div className="mt-auto flex flex-wrap gap-3"> {/* mt-auto biar nempel bawah, flex-wrap & gap-3 */}
+                  <div className="mt-auto flex flex-wrap gap-3">
                     <a
                       href="https://dying-helli-ridwanam9-4b98d171.koyeb.app"
                       target="_blank"
@@ -351,31 +348,25 @@ export default function Home() { // <-- Cukup satu kali di sini
                 </div>
               </div>
             </div>
-            {/* ================================== */}
-            {/* AKHIR Kartu Proyek 1 */}
-            {/* ================================== */}
 
-            {/* Kartu Proyek 1 - KaryaRasa BackEnd */}
-
+            {/* Kartu Proyek 2 - RevoBank API */}
             <div className="h-full flex flex-col"> 
               <div className="overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800 shadow-lg transition-colors duration-300 flex flex-col flex-grow">
                 <Image
-                  src="/supabase-schema.png" // <-- PASTIKAN NAMA & EKSTENSI FILE BENER
-                  alt="Schema Database KaryaRasa"
-                  width={500} // Lebar proporsional (bisa disesuaiin)
-                  height={281} // Tinggi proporsional (asumsi 16:9)
-                  className="w-full h-56 object-cover" // <-- UKURAN TINGGI (h-56) SAMA DENGAN KARTU LAIN
+                  src="/supabase-schema.png" // Menggunakan gambar yang sama
+                  alt="Schema Database RevoBank"
+                  width={500}
+                  height={281}
+                  className="w-full h-56 object-cover"
                 />
-                {/* Info Proyek */}
-                <div className="p-6 flex flex-col flex-grow"> {/* flex-grow biar deskripsi ngisi ruang */}
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                     RevoBank API - RevoU Course
                   </h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-300 flex-grow mb-4"> {/* flex-grow */}
-                   RevoBank API is a RESTful core banking API developed as a RevoU assignment using Python and Flask, implementing critical features such as User Management, Account Management, and Transaction Management including deposits, withdrawals, and transfers. I was fully responsible for building the solid code and architectural foundation for this API, including designing the supabase schema—specifically the Users and Accounts tables—and implementing SQLAlchemy for PostgreSQL and SQLite integration. Furthermore, my key roles included preparing comprehensive API documentation, and I gained valuable experience troubleshooting technical deployment issues on the Koyeb platform, which was crucial for ensuring the API's uptime and stability.
+                  <p className="mt-1 text-gray-600 dark:text-gray-300 text-justify flex-grow mb-4">
+                    RevoBank API is a RESTful core banking API developed as a RevoU assignment using Python and Flask, implementing critical features such as User Management, Account Management, and Transaction Management including deposits, withdrawals, and transfers. I was fully responsible for building the solid code and architectural foundation for this API, including designing the supabase schema—specifically the Users and Accounts tables—and implementing SQLAlchemy for PostgreSQL and SQLite integration. Furthermore, my key roles included preparing comprehensive API documentation, and I gained valuable experience troubleshooting technical deployment issues on the Koyeb platform, which was crucial for ensuring the API's uptime and stability.
                   </p>
-                  {/* Tombol-tombol */}
-                  <div className="mt-auto flex flex-wrap gap-3"> {/* mt-auto biar nempel bawah, flex-wrap & gap-3 */}
+                  <div className="mt-auto flex flex-wrap gap-3">
                     <a
                       href="https://complete-kalli-riotionalism-e9317c17.koyeb.app/"
                       target="_blank"
@@ -396,31 +387,25 @@ export default function Home() { // <-- Cukup satu kali di sini
                 </div>
               </div>
             </div>
-            {/* ================================== */}
-            {/* AKHIR Kartu Proyek 1 */}
-            {/* ================================== */}
 
-            {/* Kartu Proyek 1 - KaryaRasa BackEnd */}
-
+            {/* Kartu Proyek 3 - Nizamia International School */}
             <div className="h-full flex flex-col"> 
               <div className="overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800 shadow-lg transition-colors duration-300 flex flex-col flex-grow">
                 <Image
-                  src="/nizamia.png" // <-- PASTIKAN NAMA & EKSTENSI FILE BENER
-                  alt="Schema Database KaryaRasa"
-                  width={500} // Lebar proporsional (bisa disesuaiin)
-                  height={281} // Tinggi proporsional (asumsi 16:9)
-                  className="w-full h-56 object-cover" // <-- UKURAN TINGGI (h-56) SAMA DENGAN KARTU LAIN
+                  src="/nizamia.png" // Menggunakan gambar yang baru
+                  alt="Nizamia International School Website"
+                  width={500}
+                  height={281}
+                  className="w-full h-56 object-cover"
                 />
-                {/* Info Proyek */}
-                <div className="p-6 flex flex-col flex-grow"> {/* flex-grow biar deskripsi ngisi ruang */}
+                <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                     Nizamia International School - RevoU Course
                   </h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-300 flex-grow mb-4"> {/* flex-grow */}
+                  <p className="mt-1 text-gray-600 dark:text-gray-300 text-justify flex-grow mb-4">
                     Nizamia International School Website is a fully responsive, semantic HTML5 project featuring the school's details, programs, and admissions form, deployed via Netlify and GitHub. The modern aesthetic, driven by sophisticated CSS, uses a cohesive purple and sand color palette with gradients and subtle animations to ensure a dynamic and professional user experience, while the custom deployment process integrates DNS management through Niagahoster for continuous hosting.
                   </p>
-                  {/* Tombol-tombol */}
-                  <div className="mt-auto flex flex-wrap gap-3"> {/* mt-auto biar nempel bawah, flex-wrap & gap-3 */}
+                  <div className="mt-auto flex flex-wrap gap-3">
                     <a
                       href="https://kamar-belajaryo.site/"
                       target="_blank"
@@ -441,9 +426,6 @@ export default function Home() { // <-- Cukup satu kali di sini
                 </div>
               </div>
             </div>
-            {/* ================================== */}
-            {/* AKHIR Kartu Proyek 1 */}
-            {/* ================================== */}
 
           </ProjectCarousel>
           
@@ -467,5 +449,4 @@ export default function Home() { // <-- Cukup satu kali di sini
 
     </main>
   );
-// 👇 --- KURUNG KURAWAL PENUTUP FUNGSI HARUSNYA DI SINI --- 👇
 }
