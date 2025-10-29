@@ -19,11 +19,11 @@ export default function Home() { // <-- Cukup satu kali di sini
     "Leadership", "Project Management", "Adaptability", "Collaboration"
   ];
 
-  // Variasi animasi untuk elemen teks (FIXED: line 46)
+  // Variasi animasi untuk elemen teks (FIXED: dengan as const)
   const textVariants = {
     hidden: { opacity: 0, x: -100 },
-    // EASEOUT diganti array cubic-bezier
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] } }, 
+    // EASE sekarang ditambahi 'as const'
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] as const } }, 
   };
 
   // Variasi animasi untuk daftar profesi (TETAP)
@@ -41,14 +41,14 @@ export default function Home() { // <-- Cukup satu kali di sini
   // Variasi animasi untuk setiap item profesi (TETAP)
   const listItemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }, // Di sini tidak ada ease
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  // Variasi animasi untuk foto (FIXED: line 74)
+  // Variasi animasi untuk foto (FIXED: dengan as const)
   const imageVariants = {
     hidden: { opacity: 0, x: 100 },
-    // EASEOUT diganti array cubic-bezier
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.3 } },
+    // EASE sekarang ditambahi 'as const'
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] as const, delay: 0.3 } },
   };
 
   // Variasi animasi untuk tombol (TETAP)
