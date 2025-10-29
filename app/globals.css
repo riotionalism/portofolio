@@ -1,26 +1,132 @@
+/* Ini import Tailwind v4. Posisinya harus di paling atas. */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * =============================================
+ * Custom Component Styles (@apply)
+ * =============================================
+ *
+ * Kita taruh semua class custom yang pake @apply
+ * di dalem '@layer components' biar rapi
+ * dan di-handle sama Tailwind.
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  /* --- Skill Badges & Cert Cards (dari About) --- */
+  
+  .skill-badge {
+    @apply bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-full px-4 py-2 text-sm font-semibold shadow-md;
+    @apply transition-all duration-300 ease-in-out; /* Ini animasinya */
   }
+
+  .skill-badge:hover {
+    @apply scale-105 shadow-lg bg-gray-800 text-white dark:bg-white dark:text-gray-900;
+  }
+
+  .cert-card {
+    @apply bg-gray-50 dark:bg-gray-800 p-4 rounded-lg shadow-md flex justify-between items-center;
+    @apply transition-all duration-300 ease-in-out; /* Ini animasinya */
+  }
+
+  .cert-card:hover {
+    @apply scale-[1.02] shadow-xl;
+  }
+
+  /* --- Tombol Embla Carousel --- */
+  
+  .embla__button {
+    @apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full
+           bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm
+           text-gray-900 dark:text-white
+           shadow-lg flex items-center justify-center
+           transition-all duration-300;
+  }
+
+  .embla__button:hover {
+    @apply bg-white/80 dark:bg-gray-900/80 scale-105;
+  }
+
+  /* ================================== */
+  /* --- TAMBAHAN: Experience List --- */
+  /* ================================== */
+  .experiences-list {
+    @apply list-none pl-0 space-y-3;
+  }
+
+  .experiences-list li {
+    @apply relative pl-6 text-gray-600 dark:text-gray-300;
+  }
+
+  .experiences-list li::before {
+    content: '✦';
+    @apply absolute left-0 top-1 text-xs text-gray-800 dark:text-white;
+  }
+} /* <-- Ini penutup @layer components */
+
+/*
+ * =============================================
+ * Custom Structural CSS (Embla Layout)
+ * =============================================
+ *
+ * Ini adalah CSS murni buat ngatur layout Embla.
+ * Kita nggak pake @apply di sini, jadi kita taruh di luar layer.
+ */
+
+/* 1. Wrapper Utama */
+.embla {
+  position: relative;
+  /* Kasih padding di kiri-kanan biar tombol nggak nabrak */
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 2. Viewport */
+.embla__viewport {
+  overflow: hidden;
+}
+
+/* 3. Container */
+.embla__container {
+  display: flex;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 4. Slide (Ini Kuncinya!) */
+.embla__slide {
+  /* Lebar slide (bikin "ngintip") */
+  flex: 0 0 90%;
+  min-width: 0;
+  padding: 0 1rem; /* Jarak antar slide */
+
+  /* Responsif manual pake @media query */
+  @media (min-width: 768px) {
+    flex: 0 0 70%;
+  }
+  @media (min-width: 1024px) {
+    flex: 0 0 50%;
+  }
+  
+  /* Efek animasi blur/opacity */
+  opacity: 0.3;
+  transform: scale(0.9);
+  filter: blur(2px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* 4b. Slide yang aktif */
+.embla__slide.is-selected {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+}
+
+/* 5. Posisi Tombol Panah */
+.embla__button--prev {
+  left: -0.5rem; 
+}
+.embla__button--next {
+  right: -0.5rem;
 }
