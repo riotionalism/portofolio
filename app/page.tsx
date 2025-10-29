@@ -19,6 +19,8 @@ export default function Home() { // <-- Cukup satu kali di sini
     "Leadership", "Project Management", "Adaptability", "Collaboration"
   ];
 
+// Ini adalah bagian definisi variants di dalam fungsi Home() di app/page.tsx
+
   // Variasi animasi untuk elemen teks (FIXED)
   const textVariants = {
     hidden: { opacity: 0, x: -100 },
@@ -32,7 +34,7 @@ export default function Home() { // <-- Cukup satu kali di sini
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Setiap item akan muncul berurutan
+        staggerChildren: 0.2,
         delayChildren: 0.5,
       },
     },
@@ -41,7 +43,7 @@ export default function Home() { // <-- Cukup satu kali di sini
   // Variasi animasi untuk setiap item profesi (TETAP)
   const listItemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }, // Di sini memang tidak ada ease
   };
 
   // Variasi animasi untuk foto (FIXED)
