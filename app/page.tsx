@@ -5,9 +5,9 @@ import ProjectCarousel from "@/components/ProjectCarousel";
 import { motion } from "framer-motion";
 import SkillCard from "@/components/SkillCard"; // <-- Import SkillCard
 
-// 👇 --- HAPUS 'export default function Home()' DARI SINI --- 👇
-
 export default function Home() { // <-- Cukup satu kali di sini
+
+// --- GANTI KODE DARI 'const technicalSkills = [...]' SAMPAI 'buttonVariants = [...]' DENGAN INI ---
 
   // DEFINISI ARRAY SKILLS & VARIANTS ADA DI SINI
   const technicalSkills = [
@@ -19,12 +19,14 @@ export default function Home() { // <-- Cukup satu kali di sini
     "Leadership", "Project Management", "Adaptability", "Collaboration"
   ];
 
-  // Variasi animasi untuk elemen teks
+  // Variasi animasi untuk elemen teks (FIXED)
   const textVariants = {
     hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    // Ganti "easeOut" dengan array cubic-bezier
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] } }, 
   };
-  // Variasi animasi untuk daftar profesi
+
+  // Variasi animasi untuk daftar profesi (TETAP)
   const listVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,22 +37,25 @@ export default function Home() { // <-- Cukup satu kali di sini
       },
     },
   };
-  // Variasi animasi untuk setiap item profesi
+
+  // Variasi animasi untuk setiap item profesi (TETAP)
   const listItemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-  // Variasi animasi untuk foto
+
+  // Variasi animasi untuk foto (FIXED)
   const imageVariants = {
     hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.3 } },
+    // Ganti "easeOut" dengan array cubic-bezier
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.3 } },
   };
-  // Variasi animasi untuk tombol
+
+  // Variasi animasi untuk tombol (TETAP)
   const buttonVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 10, delay: 1.2 } },
   };
-  // ----------------------------------------------------------------------
 
   // 👇 --- BAGIAN RETURN MULAI DARI SINI --- 👇
   return (
