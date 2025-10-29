@@ -7,7 +7,7 @@ import SkillCard from "@/components/SkillCard"; // <-- Import SkillCard
 
 export default function Home() { // <-- Cukup satu kali di sini
 
-// --- GANTI KODE DARI 'const technicalSkills = [...]' SAMPAI 'buttonVariants = [...]' DENGAN INI ---
+// Ini adalah bagian yang harus menggantikan seluruh definisi variants di dalam fungsi Home() di app/page.tsx
 
   // DEFINISI ARRAY SKILLS & VARIANTS ADA DI SINI
   const technicalSkills = [
@@ -19,10 +19,10 @@ export default function Home() { // <-- Cukup satu kali di sini
     "Leadership", "Project Management", "Adaptability", "Collaboration"
   ];
 
-  // Variasi animasi untuk elemen teks (FIXED)
+  // Variasi animasi untuk elemen teks (FIXED: line 46)
   const textVariants = {
     hidden: { opacity: 0, x: -100 },
-    // Ganti "easeOut" dengan array cubic-bezier
+    // EASEOUT diganti array cubic-bezier
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] } }, 
   };
 
@@ -32,7 +32,7 @@ export default function Home() { // <-- Cukup satu kali di sini
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.2, // Setiap item akan muncul berurutan
         delayChildren: 0.5,
       },
     },
@@ -41,13 +41,13 @@ export default function Home() { // <-- Cukup satu kali di sini
   // Variasi animasi untuk setiap item profesi (TETAP)
   const listItemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }, // Di sini tidak ada ease
   };
 
-  // Variasi animasi untuk foto (FIXED)
+  // Variasi animasi untuk foto (FIXED: line 74)
   const imageVariants = {
     hidden: { opacity: 0, x: 100 },
-    // Ganti "easeOut" dengan array cubic-bezier
+    // EASEOUT diganti array cubic-bezier
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.3 } },
   };
 
@@ -57,13 +57,12 @@ export default function Home() { // <-- Cukup satu kali di sini
     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 10, delay: 1.2 } },
   };
 
+// -----------------------------------------------------------------------------------
   // 👇 --- BAGIAN RETURN MULAI DARI SINI --- 👇
   return (
     <main>
 
-      {/* ================================== */}
       {/* BAGIAN HERO (DENGAN ANIMASI) */}
-      {/* ================================== */}
       <section
         id="hero"
         className="bg-white dark:bg-gray-900 container mx-auto flex min-h-screen flex-col items-center justify-center p-8 md:flex-row md:items-center md:justify-center md:gap-12 lg:gap-16 transition-colors duration-300"
