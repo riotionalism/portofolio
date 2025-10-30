@@ -1,3 +1,5 @@
+// Ini file src/components/SkillCard.tsx (FIXED EASE STRING)
+
 "use client"; // Butuh 'use client' karena ada state & interaksi
 
 import { useState } from "react";
@@ -24,7 +26,8 @@ export default function SkillCard({ title, skills }: SkillCardProps) {
       height: "auto", 
       opacity: 1, 
       marginTop: "1rem", // Kasih jarak pas kebuka
-      transition: { duration: 0.3, ease: "easeInOut" } 
+      // FIX: Ganti string "easeInOut" dengan array cubic-bezier + as const
+      transition: { duration: 0.3, ease: [0.65, 0.05, 0.36, 1] as const } 
     }
   };
 

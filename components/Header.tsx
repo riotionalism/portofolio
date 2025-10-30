@@ -20,7 +20,7 @@ export default function Header() {
         {/* Logo/Nama (tetap sama) */}
         <h1 className="text-xl font-bold">
           <a href="#hero" onClick={() => setIsMenuOpen(false)}> {/* Tutup menu pas logo diklik */}
-            Fytrio Amando
+            RENCANA NYA MAU LOGO
           </a>
         </h1>
 

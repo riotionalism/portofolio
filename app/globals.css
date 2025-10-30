@@ -130,3 +130,20 @@
 .embla__button--next {
   right: -0.5rem;
 }
+
+/* --- Tambahan: Responsive Google Maps --- */
+.responsive-map-container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%; /* Rasio 16:9 */
+  height: 0;
+  border-radius: 0.5rem; /* Menyesuaikan dengan rounded-lg Tailwind */
+}
+
+.responsive-map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
