@@ -1,3 +1,5 @@
+// Ini file tailwind.config.ts (FINAL UNTUK POINS FONT)
+
 import type { Config } from 'tailwindcss'
 
 export default {
@@ -6,17 +8,16 @@ export default {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  // INI YANG KITA BUTUHKAN SEKARANG
   darkMode: "class", 
-
+  
   theme: {
     extend: {
-      // Settingan font dari yg error dulu, sekarang udah bener
-      // Nggak akan error, biarin aja di sini
+      // --- FONT POINS BARU DITAMBAHKAN DI SINI ---
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
-        mono: ["var(--font-geist-mono)"],
+        // Tailwind akan menggunakan --font-poppins (yang kita definisikan di layout.tsx)
+        sans: ["var(--font-poppins)"],
       },
+      // --------------------------------------
     },
   },
   plugins: [],
