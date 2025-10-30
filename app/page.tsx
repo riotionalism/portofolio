@@ -377,7 +377,7 @@ const slideFromRight = {
       </motion.section>
 
       {/* ================================== */}
-      /* BAGIAN PENDIDIKAN (GRID 2 KOLOM LEBAR & HOVER EFFECT) */
+      {/* BAGIAN PENDIDIKAN */}
       {/* ================================== */}
       <motion.section 
         id="education" 
