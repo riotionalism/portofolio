@@ -449,7 +449,7 @@ const slideFromRight = {
       </motion.section>
 
      {/* ================================== */}
-      /* BAGIAN PROYEK (FADE UP ANIMATION + TECH STACK ICONS) */
+      {/* BAGIAN PROYEK */}
       {/* ================================== */}
       <motion.section 
         id="proyek" 
