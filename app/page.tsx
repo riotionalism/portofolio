@@ -144,6 +144,53 @@ const slideFromRight = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" as const, delay: 0.4 } }, // Delay lebih lama
 };
 
+// --- DATA MASTER LOGO TEKNOLOGI (FIXED FINAL) ---
+  const techLogos: { [key: string]: string } = {
+    Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    Flask: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+    PostgreSQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    TypeScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    SQLite: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+    NextJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    TailwindCSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    Vercel: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    Netlify: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg",
+    HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    Supabase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+    JavaScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    Koyeb: "https://www.koyeb.com/static/images/koyeb-logo-black.svg", 
+    ApiDog: "https://apidog.com/static/icon.png",
+    
+  };
+
+  // Stack yang digunakan per proyek (DIUPDATE dengan Supabase)
+  const projectStacks = {
+    karyarasa: ["Python", "Flask", "PostgreSQL", "Supabase", "ApiDog", "Koyeb"], 
+    revobank: ["Python", "Flask", "PostgreSQL", "SQLite", "Supabase", "Koyeb"], 
+    nizamia: ["HTML", "CSS", "TailwindCSS", "Netlify"], 
+    portfolio: ["NextJS", "TypeScript", "TailwindCSS", "Vercel"],
+  };
+
+  // Helper untuk render logo stack (WAJIB ADA)
+  const renderTechStack = (stackKey: keyof typeof projectStacks) => {
+    const stack = projectStacks[stackKey];
+    return (
+      <div className="mb-4 flex flex-wrap items-center gap-3 border-t pt-3 border-gray-200 dark:border-gray-600">
+        {stack.map((techName) => (
+          <Image
+            key={techName}
+            src={techLogos[techName as keyof typeof techLogos]} 
+            alt={techName}
+            width={28}
+            height={28}
+            className="w-7 h-7 object-contain grayscale hover:grayscale-0 transition-all duration-200"
+          />
+        ))}
+      </div>
+    );
+  };
 
   return (
     <main>
@@ -163,7 +210,7 @@ const slideFromRight = {
             </motion.span>
           </div>
           
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="max-w-md text-gray-500 dark:text-gray-400 transition-colors duration-300 italic">"rencana nya quotes, tapi kita tandain dulu ini ya, rencana mau tambah animasi"</motion.p>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="max-w-md text-gray-500 dark:text-gray-400 transition-colors duration-300 italic">"TThe true value of our skills is not measured by their complexity, but by the breadth of benefit they can generate."</motion.p>
           <motion.div variants={buttonVariants} initial="hidden" animate="visible" className="pt-4">
             <a href="#proyek" className="rounded-lg bg-gray-800 px-6 py-3 text-white shadow-lg hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-colors duration-300">My Projects</a>
           </motion.div>
@@ -401,13 +448,13 @@ const slideFromRight = {
         </div>
       </motion.section>
 
-      {/* ================================== */}
-      {/* BAGIAN PROYEK */}
+     {/* ================================== */}
+      /* BAGIAN PROYEK (FADE UP ANIMATION + TECH STACK ICONS) */
       {/* ================================== */}
       <motion.section 
         id="proyek" 
-        // Animasi Fade Down (Dari Atas ke Bawah)
-        initial={{ opacity: 0, y: -50 }}
+        // Animasi Fade Up (Dari Bawah ke Atas)
+        initial={{ opacity: 0, y: 50 }} 
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
         viewport={{ once: true, amount: 0.3 }}
@@ -429,6 +476,8 @@ const slideFromRight = {
                   <p className="mt-1 text-gray-600 dark:text-gray-300 text-justify flex-grow mb-4">
                     KaryaRasa is a team project to build a robust Python/Flask backend API for a local e-commerce application, aimed at digitally connecting artisans with customers to facilitate the sale of handicrafts. As a core contributor in this RevoU final project, I was fully responsible for the development and testing of API endpoints that documented and verified with API Dog, and assisted in managing the PostgreSQL database to ensure data integrity and support core features such as JWT User Authentication, Product CRUD, and Per-user Cart Management. Beyond the backend focus, I also helped the frontend team with TypeScript/Next.js in creating chart visualizations and managed the deployment on the Koyeb platform to ensure stable application uptime.
                   </p>
+                  {/* TAMBAHAN: Logo Tech Stack Kartu 1 */}
+                  {renderTechStack('karyarasa')}
                   <div className="mt-auto flex flex-wrap gap-3">
                     <a href="https://dying-helli-ridwanam9-4b98d171.koyeb.app" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-teal-600 px-4 py-2 text-white text-sm font-medium hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 transition-colors duration-300">Live Demo</a>
                     <a href="https://github.com/ridwanam9/KaryaRasa_backend" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-gray-800 px-4 py-2 text-white text-sm font-medium hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 transition-colors duration-300">Code</a>
@@ -440,12 +489,14 @@ const slideFromRight = {
             {/* Kartu Proyek 2 - RevoBank API */}
             <div className="h-full flex flex-col"> 
               <div className="overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800 shadow-lg transition-colors duration-300 flex flex-col flex-grow">
-                <Image src="/supabase-schema.png" alt="Schema Database RevoBank" width={500} height={281} className="w-full h-56 object-cover"/>
+                <Image src="/diagram1.png" alt="Schema Database RevoBank" width={500} height={281} className="w-full h-56 object-cover"/>
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">RevoBank API - RevoU Course</h3>
                   <p className="mt-1 text-gray-600 dark:text-gray-300 text-justify flex-grow mb-4">
                     RevoBank API is a RESTful core banking API developed as a RevoU assignment using Python and Flask, implementing critical features such as User Management, Account Management, and Transaction Management including deposits, withdrawals, and transfers. I was fully responsible for building the solid code and architectural foundation for this API, including designing the supabase schema—specifically the Users and Accounts tables—and implementing SQLAlchemy for PostgreSQL and SQLite integration. Furthermore, my key roles included preparing comprehensive API documentation, and I gained valuable experience troubleshooting technical deployment issues on the Koyeb platform, which was crucial for ensuring the API's uptime and stability.
                   </p>
+                  {/* TAMBAHAN: Logo Tech Stack Kartu 2 */}
+                  {renderTechStack('revobank')}
                   <div className="mt-auto flex flex-wrap gap-3">
                     <a href="https://complete-kalli-riotionalism-e9317c17.koyeb.app" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-teal-600 px-4 py-2 text-white text-sm font-medium hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 transition-colors duration-300">Live Demo</a>
                     <a href="https://github.com/riotionalism/RevoBank-API" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-gray-800 px-4 py-2 text-white text-sm font-medium hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 transition-colors duration-300">Code</a>
@@ -463,9 +514,30 @@ const slideFromRight = {
                   <p className="mt-1 text-gray-600 dark:text-gray-300 text-justify flex-grow mb-4">
                     Nizamia International School Website is a fully responsive, semantic HTML5 project featuring the school's details, programs, and admissions form, deployed via Netlify and GitHub. The modern aesthetic, driven by sophisticated CSS, uses a cohesive purple and sand color palette with gradients and subtle animations to ensure a dynamic and professional user experience, while the custom deployment process integrates DNS management through Niagahoster for continuous hosting.
                   </p>
+                  {/* TAMBAHAN: Logo Tech Stack Kartu 3 */}
+                  {renderTechStack('nizamia')}
                   <div className="mt-auto flex flex-wrap gap-3">
                     <a href="https://kamar-belajaryo.site/" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-teal-600 px-4 py-2 text-white text-sm font-medium hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 transition-colors duration-300">Live Demo</a>
                     <a href="https://github.com/revou-fsse-oct24/milestone-1-riotionalism" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-gray-800 px-4 py-2 text-white text-sm font-medium hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 transition-colors duration-300">Code</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Kartu Proyek 4 - Personal Portofolio */}
+            <div className="h-full flex flex-col"> 
+              <div className="overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-800 shadow-lg transition-colors duration-300 flex flex-col flex-grow">
+                <Image src="/portofolio.png" alt="Personal Portfolio" width={500} height={281} className="w-full h-56 object-cover"/>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Personal Portofolio</h3>
+                  <p className="mt-1 text-gray-600 dark:text-gray-300 text-justify flex-grow mb-4">
+                    Personal Portfolio is a high-performance, fully responsive application developed using the Next.js framework and TypeScript to ensure robust type-safety and efficient data handling, featuring detailed project showcases, professional experiences, and contact information. The modern aesthetic is meticulously crafted using Tailwind CSS and semantic HTML to achieve a sleek and professional visual identity, employing a clean, cohesive color palette with subtle animations for a dynamic and engaging user experience. The entire project is continuously integrated and deployed to Vercel with version control via GitHub, establishing a professional, high-availability platform to display technical expertise.
+                  </p>
+                  {/* TAMBAHAN: Logo Tech Stack Kartu 4 */}
+                  {renderTechStack('portfolio')}
+                  <div className="mt-auto flex flex-wrap gap-3">
+                    <a href="https://portoforio.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-teal-600 px-4 py-2 text-white text-sm font-medium hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 transition-colors duration-300">Live Demo</a>
+                    <a href="https://github.com/riotionalism/portofolio" target="_blank" rel="noopener noreferrer" className="inline-block rounded bg-gray-800 px-4 py-2 text-white text-sm font-medium hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500 transition-colors duration-300">Code</a>
                   </div>
                 </div>
               </div>
@@ -499,18 +571,23 @@ const slideFromRight = {
             <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-xl transition-colors duration-300 flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  Kirim Pesan Langsung
+                  Direct Messages
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  Tertarik untuk berkolaborasi atau memiliki pertanyaan? Hubungi gua via email.
+                  Hit me up via email:
                 </p>
+                <div className="text-center mb-6"> {/* Container untuk centering */}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-teal-600 dark:text-teal-400 inline-block transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2.003 5.884L12 13.883l9.997-8.001h-19.994zM0 7.424V20h24V7.424L12 15.656 0 7.424z"/>
+                    </svg>
+                    <p className="text-lg font-medium text-gray-800 dark:text-gray-200 mt-2">fytrioamando@gmail.com</p>
+                </div>
               </div>
               <div className="mt-auto">
                 <a 
                   href="mailto:fytrioamando@gmail.com" 
-                  className="rounded-lg bg-gray-800 px-8 py-4 text-xl text-white shadow-lg hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-colors duration-300 w-full inline-block text-center"
-                >
-                  Kirim Email
+                  className="rounded-lg bg-gray-800 px-8 py-4 text-xl text-white shadow-lg hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-colors duration-300 w-full inline-block text-center">
+                  Send email
                 </a>
               </div>
             </div>
@@ -520,8 +597,7 @@ const slideFromRight = {
               {/* Kontainer Responsif Map */}
               <div className="responsive-map-container shadow-xl">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.423263973885!2d106.8078172743102!3d-6.192176995511451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e1f5a4f6b7%3A0x8e8b4e4f4c4e4e4e!2sJakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1701301234567!5m2!1sid!2sid" 
-                  style={{ border: 0 }} 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.26939358817447!2d105.2271113025336!3d-5.369558333849382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40daacefb7a9b5%3A0x2a00d8872c2e3297!2sJ6JG%2B6W7%2C%20Jl.%20Kav.%20Raya%2C%20Rajabasa%2C%20Kec.%20Rajabasa%2C%20Kota%20Bandar%20Lampung%2C%20Lampung%2035142!5e0!3m2!1sid!2sid!4v1761868124009!5m2!1sid!2sid"
                   allowFullScreen={true} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
