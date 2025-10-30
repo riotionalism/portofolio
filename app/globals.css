@@ -1,16 +1,6 @@
 /* Ini import Tailwind v4. Posisinya harus di paling atas. */
 @import "tailwindcss";
 
-/*
- * =============================================
- * Custom Component Styles (@apply)
- * =============================================
- *
- * Kita taruh semua class custom yang pake @apply
- * di dalem '@layer components' biar rapi
- * dan di-handle sama Tailwind.
- */
-
 @layer components {
   /* --- Skill Badges & Cert Cards (dari About) --- */
   
