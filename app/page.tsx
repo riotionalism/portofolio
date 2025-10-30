@@ -7,7 +7,7 @@ import SkillCard from "@/components/SkillCard";
 
 export default function Home() {
 
-  // DEFINISI ARRAY SKILLS & VARIANTS ADA DI SINI
+ // DEFINISI ARRAY SKILLS & VARIANTS ADA DI SINI
   const technicalSkills = [
     "Python", "JavaScript", "TypeScript", "Flask", "RESTFull API", "HTML", "CSS",
     "Tailwind CSS", "Bootstrap", "Next.js", "ReactJS", "PostgreSQL", "SQLite",
@@ -302,7 +302,7 @@ export default function Home() {
       </section>
 
       {/* ================================== */}
-      
+      {/* BAGIAN KONTAK (DENGAN GOOGLE MAPS) */}
       {/* ================================== */}
       <section id="kontak" className="bg-gray-100 dark:bg-gray-800 py-16 transition-colors duration-300">
         <div className="container mx-auto px-8">
