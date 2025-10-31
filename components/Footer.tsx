@@ -62,7 +62,7 @@ export default function Footer() {
           &copy; {currentYear} Fytrio Amando. All rights reserved.
         </p>
         <p className="mt-1 text-xs text-gray-500">
-          Dibuat dengan penuh semangat pake Next.js & Tailwind CSS.
+          Built with love and passion using Next.js and Tailwind CSS.
         </p>
       </div>
     </footer>
